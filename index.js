@@ -1,4 +1,3 @@
-
 // when animating on canvas, it is best to use requestAnimationFrame instead of setTimeout or setInterval
 // not supported in all browsers though and sometimes needs a prefix, so we need a shim
 window.requestAnimFrame = (function () {
@@ -294,9 +293,100 @@ canvas.addEventListener("mouseup", function (e) {
 // once the window loads, we are ready for some fireworks!
 window.onload = loop;
 
+const info = document.querySelector(".information");
+const container = document.querySelector(".content");
+const about = document.querySelector(".linkabout");
+const blog = document.querySelector(".linkblog");
+const projects = document.querySelector(".linkprojects");
+const contact = document.querySelector(".linkcontact");
+const close = document.getElementById("closebtn");
 
+about.addEventListener("click", () => {
+  container.style.display = "none";
+  document.body.classList.add("displayprofile");
+  info.innerHTML = `<h3>About</h3>
+  <i id="closebtn" class="fa-solid fa-circle-xmark"></i>
+  <p>Hi friends! My name is Jeremiah and my passion is to develop software applications that make the world a better place to live in. I am open to work and looking for my next developer job! Some projects I recently completed include developing an e-commerce application and an interactive Quiz app using React. I’m currently developing an application for a car rental company called Aldo to increase its reach and customer base.</p>`;
+});
 
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("fa-circle-xmark")) {
+    document.body.classList.remove("displayprofile");
+    container.style.display = "block";
+  }
+});
 
-document.querySelector('.libut').addEventListener('click', () => {
-  console.log('heloo');
-})
+blog.addEventListener("click", () => {
+  container.style.display = "none";
+  document.body.classList.add("displayprofile");
+  info.innerHTML = `<i id="closebtn" class="fa-solid fa-circle-xmark"></i>
+  <p>How I began my Coding Journey
+   <a href="https://medium.com/@jerasterix/how-i-began-my-coding-journey-fb278c3671cd">
+   <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+   </p>`;
+});
+
+projects.addEventListener("click", () => {
+  container.style.display = "none";
+  document.body.classList.add("displayprofile");
+  info.innerHTML = `
+  <i id="closebtn" class="fa-solid fa-circle-xmark"></i>
+  <ul>
+   <li>Cryto-Market 
+     <a href="https://effervescent-stroopwafel-cbea62.netlify.app/">Live
+     <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+     <a href="https://github.com/Jaymelfah/crypto-market.git"><i class="fa-brands fa-github"></i></a>
+   </li>
+
+   <li>Space-travelers-hub 
+   <a href="https://sthub.netlify.app/">Live
+   <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+   <a href="https://github.com/Jaymelfah/space-travelers-hub.git"><i class="fa-brands fa-github"></i></a>
+ </li>
+
+ <li>Pokedex 
+ <a href="https://kaizipaul.github.io/module-2-capstone/">Live
+ <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+ <a href="https://github.com/Jaymelfah/Pokedex.git"><i class="fa-brands fa-github"></i></a>
+</li>
+
+<li>Quizzical 
+<a href="https://elaborate-empanada-0e9a43.netlify.app/">Live
+<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a href="https://github.com/Jaymelfah/Quizzical.git"><i class="fa-brands fa-github"></i></a>
+</li>
+
+<li>Math Magician 
+<a href="https://chic-blini-714a0e.netlify.app/">Live
+<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a href="https://github.com/Jaymelfah/Math-Magician.git"><i class="fa-brands fa-github"></i></a>
+</li>
+
+<li>Leaderboard 
+<a href="https://jaymelfah.github.io/Leaderboard/dist/">Live
+<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+<a href="https://github.com/Jaymelfah/Leaderboard.git"><i class="fa-brands fa-github"></i></a>
+</li>
+  </ul>`;
+});
+
+contact.addEventListener('click', () => {
+  container.style.display = "none";
+  document.body.classList.add("displayprofile");
+  info.innerHTML = `
+  <i id="closebtn" class="fa-solid fa-circle-xmark"></i>
+  <ul class="contact flex">
+   <li>
+     <a href="https://www.linkedin.com/in/jeremiah-melfah"><i class="fa-brands fa-linkedin"></i></a>
+   </li>
+    <li>
+      <a href="https://github.com/Jaymelfah"><i class="fa-brands fa-github"></i></a>
+    </li>
+    <li>
+      <a href="https://twitter.com/JMelfah1"><i class="fa-brands fa-twitter"></i></a>
+    </li>
+    <li>
+      <a href="https://medium.com/@jerasterix"><i class="fa-brands fa-medium"></i></a>
+    </li>
+  </ul>`;
+});
